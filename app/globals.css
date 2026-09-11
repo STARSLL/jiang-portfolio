@@ -59,32 +59,13 @@ img{
 
 .navbar{
 
-  position:fixed;
-
-  top:0;
-
-  left:0;
-
-  width:100%;
-
-  height:90px;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  padding:0 60px;
-
-  z-index:100;
-
-  background:
-  rgba(5,8,20,.25);
-
-  backdrop-filter:blur(12px);
-
-}
+  position:absolute;
+  
+  background:none;
+  
+  backdrop-filter:none;
+  
+  }
 
 
 

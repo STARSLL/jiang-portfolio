@@ -2,21 +2,20 @@
 
 
 import {
-
-Canvas
-
-}
-from "@react-three/fiber";
+  Canvas
+} from "@react-three/fiber";
 
 
 import {
+  Suspense,
+  useEffect,
+  useState
+} from "react";
 
-Suspense,
-useEffect,
-useState
 
-}
-from "react";
+import {
+  Environment
+} from "@react-three/drei";
 
 
 import MorphingParticles from "./MorphingParticles";
@@ -69,6 +68,7 @@ threshold:0.1
 
 
 
+
 const section =
 document.querySelector(
 ".hero"
@@ -96,11 +96,9 @@ observer.disconnect();
 
 
 
-if(!visible){
-
+if(!visible)
 return null;
 
-}
 
 
 
@@ -114,15 +112,34 @@ className="particle-background"
 
 style={{
 
+
 position:"absolute",
 
 inset:0,
 
-zIndex:0
+zIndex:0,
+
+background:
+
+`
+radial-gradient(
+circle at 50% 40%,
+rgba(18,80,65,.18),
+transparent 35%
+),
+
+linear-gradient(
+180deg,
+#0b1010,
+#050814
+)
+`
+
 
 }}
 
 >
+
 
 
 <Canvas
@@ -142,18 +159,53 @@ fov:45
 }}
 
 
+
+
 dpr={[1,1.5]}
 
+
+
+
+
+gl={{
+
+antialias:true,
+
+alpha:true
+
+}}
+
+
+
+
 >
+
 
 
 <Suspense fallback={null}>
 
 
-<MorphingParticles/>
+
+{/* 环境反射 */}
+
+<Environment
+preset="city"
+/>
 
 
-<FlowParticles/>
+
+
+{/* 主体球 */}
+
+<MorphingParticles />
+
+
+
+
+{/* 横向生命流 */}
+
+<FlowParticles />
+
 
 
 </Suspense>
@@ -161,6 +213,7 @@ dpr={[1,1.5]}
 
 
 </Canvas>
+
 
 
 </div>

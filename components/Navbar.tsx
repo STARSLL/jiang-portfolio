@@ -1,47 +1,90 @@
 "use client";
 
+
 import Link from "next/link";
 import {useState} from "react";
 
 
+
 export default function Navbar(){
 
-  const [open,setOpen]=useState(false);
 
 
-  return(
+const [open,setOpen]=useState(false);
+
+
+
+return(
+
+
 
 <nav className="navbar">
 
 
-<Link
-href="/"
-className="logo"
->
-JIANG
-</Link>
 
 
 
 <div className="desktop-menu">
 
 
-<Link href="/">
+
+<Link
+
+href="/"
+
+className="nav-item"
+
+>
+
 HOME
+
+<div className="hover-box"></div>
+
 </Link>
 
 
-<Link href="/works">
+
+
+
+<Link
+
+href="/works"
+
+className="nav-item"
+
+>
+
 WORKS
+
+<div className="hover-box"></div>
+
 </Link>
 
 
-<Link href="/about">
+
+
+
+<Link
+
+href="/about"
+
+className="nav-item"
+
+>
+
 ABOUT ME
+
+<div className="hover-box"></div>
+
 </Link>
+
+
+
 
 
 </div>
+
+
 
 
 
@@ -49,7 +92,9 @@ ABOUT ME
 
 <button
 
+
 className="mobile-menu-button"
+
 
 onClick={()=>setOpen(!open)}
 
@@ -57,104 +102,127 @@ onClick={()=>setOpen(!open)}
 
 ☰
 
+
 </button>
 
 
 
 
 
+
+
 {
+
 open &&
 
 <div className="mobile-menu">
 
 
-<Link 
-href="/"
-onClick={()=>setOpen(false)}
->
+<Link href="/">
+
 HOME
+
 </Link>
 
 
-<Link 
-href="/works"
-onClick={()=>setOpen(false)}
->
+
+<Link href="/works">
+
 WORKS
+
 </Link>
 
 
-<Link 
-href="/about"
-onClick={()=>setOpen(false)}
->
+
+<Link href="/about">
+
 ABOUT ME
+
 </Link>
+
 
 
 </div>
 
+
 }
+
+
 
 
 
 <style jsx>{`
 
 
+
+/* =====================
+
+导航整体
+
+===================== */
+
+
 .navbar{
+
 
 position:fixed;
 
+
+
 top:0;
 
-left:0;
 
-width:100%;
+
+right:0;
+
+
+
+width:auto;
+
+
 
 height:90px;
 
+
+/*
+导航高度
+
+*/
+
+
 display:flex;
+
+
 
 align-items:center;
 
-justify-content:space-between;
 
-padding:0 60px;
 
 z-index:100;
 
-color:#fff;
 
-background:
-rgba(5,8,20,.25);
 
-backdrop-filter:blur(14px);
+padding-right:
 
--webkit-backdrop-filter:blur(14px);
+70px;
+
+
+/*
+右侧距离
+
+*/
+
 
 }
 
 
 
 
-.logo{
+/* =====================
 
+三个导航容器
 
-color:#fff;
-
-text-decoration:none;
-
-font-size:16px;
-
-font-weight:500;
-
-letter-spacing:7px;
-
-}
-
-
-
+===================== */
 
 
 .desktop-menu{
@@ -162,44 +230,274 @@ letter-spacing:7px;
 
 display:flex;
 
-gap:55px;
+
 
 align-items:center;
 
+
+
+gap:
+
+65px;
+
+
+/*
+导航间距
+
+原55
+
+现在65更加高级
+
+
+*/
+
+
 }
 
 
 
 
 
-.desktop-menu a{
+
+/* =====================
+
+导航文字
+
+===================== */
 
 
-color:#fff;
+.nav-item{
+
+
+position:relative;
+
+
+
+height:
+
+50px;
+
+
+
+display:flex;
+
+
+
+align-items:center;
+
+
+
+justify-content:center;
+
+
+
+padding:
+
+0 18px;
+
+
+
+color:
+
+rgba(245,247,251,.92);
+
+
+
+font-size:
+
+13px;
+
+
+
+letter-spacing:
+
+5px;
+
+
 
 text-decoration:none;
 
-font-size:13px;
 
-letter-spacing:6px;
 
-opacity:.9;
+transition:
 
-transition:.3s;
+.35s;
+
+
+
+overflow:visible;
+
 
 }
 
 
 
 
-.desktop-menu a:hover{
+
+/* =====================
+
+hover玻璃方块
+
+===================== */
 
 
-opacity:.55;
+.hover-box{
+
+
+position:absolute;
+
+
+
+z-index:-1;
+
+
+
+top:
+
+50%;
+
+
+
+left:
+
+50%;
+
+
+
+transform:
+
+translate(-50%,-50%);
+
+
+
+width:
+
+120px;
+
+
+/*
+方块宽度
+
+*/
+
+
+height:
+
+42px;
+
+
+/*
+方块高度
+
+*/
+
+
+border-radius:
+
+10px;
+
+
+/*
+圆角
+
+*/
+
+
+background:
+
+
+rgba(210,220,230,.16);
+
+
+/*
+灰色透明背景
+
+*/
+
+
+border:
+
+
+1px solid
+
+rgba(255,255,255,.18);
+
+
+
+backdrop-filter:
+
+blur(18px);
+
+
+
+-webkit-backdrop-filter:
+
+blur(18px);
+
+
+
+opacity:
+
+0;
+
+
+
+transition:
+
+all .35s ease;
+
+
 
 }
 
 
+
+
+
+.nav-item:hover .hover-box{
+
+
+opacity:
+
+1;
+
+
+
+width:
+
+135px;
+
+
+
+height:
+
+48px;
+
+
+
+}
+
+
+
+
+
+.nav-item:hover{
+
+
+color:white;
+
+
+
+}
+
+
+
+
+/* =====================
+
+手机菜单
+
+===================== */
 
 
 .mobile-menu-button{
@@ -207,18 +505,25 @@ opacity:.55;
 
 display:none;
 
+
+
 background:none;
+
+
 
 border:none;
 
+
+
 color:white;
 
-font-size:28px;
 
-cursor:pointer;
+
+font-size:26px;
+
+
 
 }
-
 
 
 
@@ -228,42 +533,52 @@ cursor:pointer;
 
 position:absolute;
 
+
+
 right:30px;
 
-top:90px;
 
 
-width:180px;
+top:80px;
 
 
-padding:30px;
+
+padding:25px;
+
 
 
 display:flex;
 
+
+
 flex-direction:column;
 
-gap:25px;
+
+
+gap:200px;
+
 
 
 background:
 
-rgba(5,8,20,.92);
+
+rgba(20,25,35,.75);
 
 
-border:
 
-1px solid rgba(255,255,255,.12);
+backdrop-filter:
 
-
-border-radius:14px;
+blur(20px);
 
 
-backdrop-filter:blur(15px);
+
+border-radius:
+
+15px;
+
 
 
 }
-
 
 
 
@@ -273,11 +588,18 @@ backdrop-filter:blur(15px);
 
 color:white;
 
-text-decoration:none;
 
-font-size:13px;
 
-letter-spacing:5px;
+letter-spacing:
+
+4px;
+
+
+
+font-size:
+
+13px;
+
 
 
 }
@@ -285,15 +607,21 @@ letter-spacing:5px;
 
 
 
-
 @media(max-width:768px){
+
 
 
 .navbar{
 
-padding:
 
-0 30px;
+height:80px;
+
+
+
+padding-right:
+
+30px;
+
 
 }
 
@@ -302,7 +630,9 @@ padding:
 
 .desktop-menu{
 
+
 display:none;
+
 
 }
 
@@ -311,13 +641,16 @@ display:none;
 
 .mobile-menu-button{
 
+
 display:block;
 
-}
-
-
 
 }
+
+
+
+}
+
 
 
 
@@ -327,6 +660,8 @@ display:block;
 
 </nav>
 
-  );
+
+);
+
 
 }
