@@ -29,11 +29,14 @@ interface ProjectData{
 
 
 
+import type {ProjectItem} from "./projects";
+
+
 interface Props{
 
-  onProjectHover:(project:ProjectData)=>void;
+onProjectHover:(project:ProjectItem)=>void;
 
-  onProjectLeave:()=>void;
+onProjectLeave:()=>void;
 
 }
 

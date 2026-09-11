@@ -3,37 +3,21 @@
 
 import Link from "next/link";
 import {useState} from "react";
+import type {ProjectItem} from "./projects";
 
 
-interface ProjectData{
-
-id:string;
-
-title:string;
-
-category:string;
-
-year:string;
-
-slug?:string;
-
-description?:string;
-
-cover?:string;
-
-}
 
 
 
 interface Props{
 
-project:ProjectData;
-
-onHover:(project:ProjectData)=>void;
-
-onLeave:()=>void;
-
-}
+    project:ProjectItem;
+    
+    onHover:(project:ProjectItem)=>void;
+    
+    onLeave:()=>void;
+    
+    }
 
 
 
