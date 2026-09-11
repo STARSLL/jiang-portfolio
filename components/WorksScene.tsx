@@ -201,12 +201,12 @@ rgba(5,8,20,.92)
 
 backdropFilter:
 
-"blur(8px)",
+"blur(10px)",
 
 
 WebkitBackdropFilter:
 
-"blur(8px)"
+"blur(10px)"
 
 
 }}
