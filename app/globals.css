@@ -1,0 +1,520 @@
+*{
+
+  box-sizing:border-box;
+  
+  }
+  
+  
+  body{
+  
+  
+  margin:0;
+  
+  
+  background:
+  
+  linear-gradient(
+  
+  180deg,
+  
+  #080a0d,
+  
+  #20242a
+  
+  );
+  
+  
+  color:white;
+  
+  
+  font-family:
+  
+  Arial, Helvetica, sans-serif;
+  
+  
+  }
+  
+  
+  
+  .navbar{
+  
+  
+  position:fixed;
+  
+  
+  top:0;
+  
+  
+  left:0;
+  
+  
+  width:100%;
+  
+  
+  display:flex;
+  
+  
+  justify-content:space-between;
+  
+  
+  align-items:center;
+  
+  
+  padding:35px 60px;
+  
+  
+  z-index:10;
+  
+  
+  background:
+  
+  rgba(10,10,10,.25);
+  
+  
+  backdrop-filter:blur(12px);
+  
+  
+  }
+  
+  
+  
+  .logo{
+  
+  
+  font-size:18px;
+  
+  
+  letter-spacing:2px;
+  
+  
+  }
+  
+  
+  
+  .nav-links{
+  
+  
+  display:flex;
+  
+  
+  gap:45px;
+  
+  
+  font-size:14px;
+  
+  
+  color:#cfd3d8;
+  
+  
+  }
+  
+  
+  
+  .hero{
+
+
+    height:100vh;
+    
+    
+    display:flex;
+    
+    
+    align-items:flex-end;
+    
+    
+    justify-content:flex-start;
+    
+    
+    
+    padding-left:80px;
+    
+    
+    padding-bottom:100px;
+    
+    
+    }
+    
+    
+    
+    .hero-text{
+    
+    
+    max-width:600px;
+    
+    
+    }
+    
+    
+    
+    .subtitle{
+    
+    
+    font-size:14px;
+    
+    
+    letter-spacing:8px;
+    
+    
+    margin-bottom:30px;
+    
+    
+    color:#bfc5cc;
+    
+    
+    }
+    
+    
+    
+    .hero h1{
+
+      font-size:36px;
+      
+      font-weight:300;
+      
+      line-height:1.35;
+      
+      letter-spacing:1px;
+      
+      }
+    
+    
+    
+    .hero button{
+    
+    
+    margin-top:35px;
+    
+    
+    padding:12px 35px;
+    
+    
+    }
+    
+  
+  
+  
+  .works{
+  
+  
+  padding:
+  
+  100px 60px;
+  
+  
+  }
+  
+  
+  
+  .works h2{
+  
+  
+  font-size:50px;
+  
+  
+  font-weight:200;
+  
+  
+  }
+  
+  
+  
+  .grid{
+  
+  
+  display:grid;
+  
+  
+  grid-template-columns:
+  
+  repeat(3,1fr);
+  
+  
+  gap:30px;
+  
+  
+  }
+  
+  
+  
+  .card{
+  
+  
+  height:430px;
+  
+  
+  padding:25px;
+  
+  
+  border-radius:20px;
+  
+  
+  background:
+  
+  rgba(255,255,255,.08);
+  
+  
+  border:
+  
+  1px solid rgba(255,255,255,.15);
+  
+  
+  transition:.4s;
+  
+  
+  }
+  
+  
+  
+  .card:hover{
+  
+  
+  transform:
+  
+  translateY(-15px);
+  
+  
+  background:
+  
+  rgba(255,255,255,.15);
+  
+  
+  }
+  
+  
+  
+  .image-placeholder{
+  
+  
+  height:250px;
+  
+  
+  display:flex;
+  
+  
+  align-items:center;
+  
+  
+  justify-content:center;
+  
+  
+  background:
+  
+  linear-gradient(
+  
+  135deg,
+  
+  #333,
+  
+  #111
+  
+  );
+  
+  
+  color:#aaa;
+  
+  
+  margin-bottom:20px;
+  
+  
+  }
+  
+  .particle-bg{
+
+    position:fixed;
+    
+    top:0;
+    
+    left:0;
+    
+    width:100vw;
+    
+    height:100vh;
+    
+    z-index:-1;
+    
+    opacity:.85;
+    
+    filter:blur(.3px);
+    
+    }
+    
+    
+    
+    
+    
+    main{
+    
+    position:relative;
+    
+    overflow:hidden;
+    
+    }
+    .works{
+
+      background:#090b0f;
+      
+      padding:160px 90px;
+      
+      color:white;
+      
+      }
+      
+      
+      
+      .works-header{
+      
+      margin-bottom:100px;
+      
+      }
+      
+      
+      .works-header p{
+      
+      font-size:14px;
+      
+      letter-spacing:8px;
+      
+      color:#888;
+      
+      }
+      
+      
+      
+      .works-header h2{
+      
+      font-size:70px;
+      
+      font-weight:700;
+      
+      line-height:1.05;
+      
+      }
+      
+      
+      
+      .works-list{
+      
+      display:flex;
+      
+      flex-direction:column;
+      
+      gap:40px;
+      
+      }
+      
+      
+      
+      .project-card{
+      
+      
+      border-top:1px solid rgba(255,255,255,.2);
+      
+      
+      padding:45px 0;
+      
+      
+      display:flex;
+      
+      align-items:flex-start;
+      
+      position:relative;
+      
+      
+      transition:.4s;
+      
+      
+      }
+      
+      
+      
+      .project-card:hover{
+      
+      transform:translateX(30px);
+      
+      }
+      
+      
+      
+      .project-number{
+      
+      
+      font-size:18px;
+      
+      width:120px;
+      
+      color:#777;
+      
+      
+      }
+      
+      
+      
+      .project-content{
+      
+      
+      flex:1;
+      
+      
+      }
+      
+      
+      
+      .category{
+      
+      
+      font-size:12px;
+      
+      letter-spacing:5px;
+      
+      color:#aaa;
+      
+      }
+      
+      
+      
+      .project-content h3{
+      
+      
+      font-size:42px;
+      
+      margin:20px 0;
+      
+      
+      }
+      
+      
+      
+      .desc{
+      
+      
+      max-width:600px;
+      
+      font-size:16px;
+      
+      color:#aaa;
+      
+      line-height:1.8;
+      
+      
+      }
+      
+      
+      
+      .year{
+      
+      margin-top:25px;
+      
+      font-size:14px;
+      
+      }
+      
+      
+      
+      .arrow{
+      
+      
+      font-size:40px;
+      
+      
+      }
+      
