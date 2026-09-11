@@ -9,61 +9,94 @@ import {projects} from "./projects";
 
 
 
-interface Props{
+interface ProjectData{
 
-onProjectHover:(project:any)=>void;
+  id:string;
 
-onProjectLeave:()=>void;
+  title:string;
+
+  category:string;
+
+  year:string;
+
+  slug?:string;
+
+  description?:string;
+
+  cover:string;
 
 }
 
 
 
+interface Props{
+
+  onProjectHover:(project:ProjectData)=>void;
+
+  onProjectLeave:()=>void;
+
+}
+
+
+
+
+
 export default function Timeline({
 
-onProjectHover,
+  onProjectHover,
 
-onProjectLeave
+  onProjectLeave
 
 }:Props){
 
 
 
-const scrollRef=
+const scrollRef =
 useRef<HTMLDivElement>(null);
 
 
 
-const isDragging=
+const isDragging =
 useRef(false);
 
 
 
-const startX=
+const startX =
 useRef(0);
 
 
 
-const startScrollLeft=
+const startScrollLeft =
 useRef(0);
 
 
 
-const [dragging,setDragging]=useState(false);
+const [dragging,setDragging]=
+useState(false);
 
 
 
 
-const handleMouseDown=(e:React.MouseEvent<HTMLDivElement>)=>{
+
+/* =========================
+   mouse drag
+========================= */
 
 
-if(!scrollRef.current)return;
+const handleMouseDown=
+(e:React.MouseEvent<HTMLDivElement>)=>{
+
+
+if(!scrollRef.current)
+return;
+
 
 
 isDragging.current=true;
 
 
 setDragging(true);
+
 
 
 startX.current=e.clientX;
@@ -79,14 +112,21 @@ scrollRef.current.scrollLeft;
 
 
 
-const handleMouseMove=(e:React.MouseEvent<HTMLDivElement>)=>{
+const handleMouseMove=
+(e:React.MouseEvent<HTMLDivElement>)=>{
 
 
-if(!isDragging.current||!scrollRef.current)return;
+if(
+!isDragging.current ||
+!scrollRef.current
+)
+return;
+
 
 
 const move=
 e.clientX-startX.current;
+
 
 
 scrollRef.current.scrollLeft=
@@ -114,17 +154,28 @@ setDragging(false);
 
 
 
-const handleTouchStart=(e:React.TouchEvent<HTMLDivElement>)=>{
+
+/* =========================
+   touch drag
+========================= */
 
 
-if(!scrollRef.current)return;
+const handleTouchStart=
+(e:React.TouchEvent<HTMLDivElement>)=>{
+
+
+if(!scrollRef.current)
+return;
+
 
 
 isDragging.current=true;
 
 
+
 startX.current=
 e.touches[0].clientX;
+
 
 
 startScrollLeft.current=
@@ -137,14 +188,21 @@ scrollRef.current.scrollLeft;
 
 
 
-const handleTouchMove=(e:React.TouchEvent<HTMLDivElement>)=>{
+const handleTouchMove=
+(e:React.TouchEvent<HTMLDivElement>)=>{
 
 
-if(!isDragging.current||!scrollRef.current)return;
+if(
+!isDragging.current ||
+!scrollRef.current
+)
+return;
+
 
 
 const move=
 e.touches[0].clientX-startX.current;
+
 
 
 scrollRef.current.scrollLeft=
@@ -152,6 +210,7 @@ startScrollLeft.current-move;
 
 
 };
+
 
 
 
@@ -180,27 +239,19 @@ marginTop:"42px"
 
 style={{
 
-
 position:"absolute",
-
 
 right:"40px",
 
-
 top:"-20px",
-
 
 fontSize:"11px",
 
-
 letterSpacing:"4px",
-
 
 opacity:.45,
 
-
 textTransform:"uppercase"
-
 
 }}
 
@@ -217,6 +268,7 @@ DRAG TO EXPLORE →
 
 
 <div
+
 
 ref={scrollRef}
 
@@ -253,17 +305,25 @@ overflowY:"hidden",
 
 
 cursor:
+
 dragging
+
 ?
+
 "grabbing"
+
 :
+
 "grab",
+
 
 
 scrollbarWidth:"none",
 
 
+
 WebkitOverflowScrolling:"touch",
+
 
 
 userSelect:"none"
@@ -272,6 +332,10 @@ userSelect:"none"
 }}
 
 >
+
+
+
+
 
 
 
@@ -301,6 +365,13 @@ position:"relative"
 
 
 
+
+
+
+
+
+{/* timeline line */}
+
 <div
 
 style={{
@@ -322,6 +393,7 @@ height:"1px",
 
 
 background:
+
 "rgba(255,255,255,.15)"
 
 
@@ -335,9 +407,11 @@ background:
 
 
 
+
+
 {
 
-projects.map(project=>(
+projects.map((project)=>(
 
 
 
@@ -348,29 +422,40 @@ key={project.id}
 style={{
 
 
+
 width:
 
 "clamp(260px,75vw,320px)",
 
 
+
 flex:"0 0 auto",
+
 
 
 display:"flex",
 
 
+
 flexDirection:"column",
+
 
 
 alignItems:"center",
 
 
+
 scrollSnapAlign:"start"
+
 
 
 }}
 
 >
+
+
+
+
 
 
 
@@ -393,6 +478,9 @@ onLeave={onProjectLeave}
 
 
 
+
+
+
 <div
 
 style={{
@@ -405,12 +493,15 @@ width:"1px",
 
 
 background:
+
 "rgba(255,255,255,.2)"
 
 
 }}
 
 />
+
+
 
 
 
@@ -436,12 +527,16 @@ background:"#fff",
 
 
 boxShadow:
+
 "0 0 20px rgba(255,255,255,.8)"
 
 
 }}
 
 />
+
+
+
 
 
 
@@ -477,20 +572,28 @@ opacity:.65
 
 
 
+
+
+
+
 </div>
 
 
-
 ))
+
 
 }
 
 
 
+
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -506,6 +609,8 @@ display:none;
 }
 
 `}</style>
+
+
 
 
 

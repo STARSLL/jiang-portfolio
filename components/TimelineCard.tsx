@@ -61,7 +61,9 @@ project.slug
 
 
 
+
 return(
+
 
 <Link
 
@@ -71,11 +73,14 @@ style={{
 
 textDecoration:"none",
 
-color:"inherit"
+color:"inherit",
+
+width:"100%"
 
 }}
 
 >
+
 
 
 <div
@@ -90,7 +95,6 @@ onHover(project);
 }}
 
 
-
 onMouseLeave={()=>{
 
 setHover(false);
@@ -101,13 +105,14 @@ onLeave();
 
 
 
+
 style={{
 
 
 width:"100%",
 
 
-height:"190px",
+height:"220px",
 
 
 borderRadius:"22px",
@@ -125,7 +130,7 @@ hover
 
 ?
 
-"rgba(255,255,255,.07)"
+"rgba(255,255,255,.08)"
 
 :
 
@@ -133,18 +138,27 @@ hover
 
 
 
-backdropFilter:"blur(12px)",
+backdropFilter:
+
+"blur(14px)",
 
 
-WebkitBackdropFilter:"blur(12px)",
+WebkitBackdropFilter:
+
+"blur(14px)",
 
 
 
-padding:"24px",
-
+padding:"26px",
 
 
 boxSizing:"border-box",
+
+
+
+display:"flex",
+
+flexDirection:"column",
 
 
 
@@ -182,9 +196,8 @@ hover
 
 
 
-position:"relative",
-
 cursor:"pointer"
+
 
 }}
 
@@ -192,22 +205,22 @@ cursor:"pointer"
 
 
 
+
+{/* project number */}
+
 <div
 
 style={{
 
-
 fontSize:"11px",
-
 
 letterSpacing:"5px",
 
-
 opacity:.45,
 
+marginBottom:"26px",
 
-marginBottom:"24px"
-
+flexShrink:0
 
 }}
 
@@ -221,6 +234,10 @@ PROJECT {project.id}
 
 
 
+
+
+{/* title */}
+
 <h3
 
 style={{
@@ -229,7 +246,7 @@ style={{
 margin:0,
 
 
-fontSize:"24px",
+fontSize:"26px",
 
 
 lineHeight:1.15,
@@ -241,7 +258,15 @@ letterSpacing:"1px",
 fontWeight:600,
 
 
-maxWidth:"220px"
+textTransform:"uppercase",
+
+
+
+maxWidth:"230px",
+
+
+
+minHeight:"60px"
 
 
 }}
@@ -257,27 +282,34 @@ maxWidth:"220px"
 
 
 
+
+{/* category */}
+
 <div
 
 style={{
 
 
-position:"absolute",
-
-
-bottom:"22px",
-
-
-left:"24px",
+marginTop:"auto",
 
 
 fontSize:"10px",
 
 
-letterSpacing:"5px",
+lineHeight:1.4,
 
 
-opacity:.55
+letterSpacing:"4px",
+
+
+opacity:.55,
+
+
+textTransform:"uppercase",
+
+
+
+maxWidth:"230px"
 
 
 }}
@@ -286,7 +318,10 @@ opacity:.55
 
 {project.category}
 
+
 </div>
+
+
 
 
 

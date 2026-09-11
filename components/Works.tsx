@@ -15,26 +15,25 @@ style={{
 
 height:"100vh",
 
-background:"#05070c",
-
 position:"relative",
 
 overflow:"hidden",
 
-color:"#fff"
+color:"#fff",
+
+background:"#050814"
 
 }}
 
 >
 
 
+
 {/* page title */}
 
 <div
 
-
 style={{
-
 
 position:"absolute",
 
@@ -42,17 +41,16 @@ top:"140px",
 
 left:"clamp(30px,8vw,120px)",
 
-zIndex:10
+zIndex:20,
 
+pointerEvents:"none"
 
 }}
-
 
 >
 
 
 <div
-
 
 style={{
 
@@ -78,7 +76,6 @@ SELECTED WORKS
 
 style={{
 
-
 fontSize:"clamp(52px,6vw,82px)",
 
 letterSpacing:"5px",
@@ -91,7 +88,6 @@ margin:0,
 
 textTransform:"uppercase"
 
-
 }}
 
 >
@@ -101,11 +97,16 @@ PROJECTS
 </h1>
 
 
+
 </div>
 
 
 
+
+
 <WorksScene/>
+
+
 
 
 </section>

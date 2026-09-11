@@ -2,40 +2,28 @@
 
 
 import {useState} from "react";
+
 import Timeline from "./Timeline";
 
 
 
-interface HoverProject{
+interface ProjectData{
 
-id:string;
+  id:string;
 
-title:string;
+  title:string;
+
+  category:string;
+
+  year:string;
+
+  slug?:string;
+
+  description?:string;
+
+  cover?:string;
 
 }
-
-
-
-
-const projectImages:{[key:string]:string}={
-
-
-"01":
-"/portfolio-a/04.jpg",
-
-
-"02":
-"/portfolio-a/14.jpg",
-
-
-"03":
-"/portfolio-a/24.jpg",
-
-
-"04":
-"/portfolio-a/33.jpg"
-
-};
 
 
 
@@ -46,23 +34,19 @@ export default function WorksScene(){
 
 
 const [activeProject,setActiveProject]=
-useState<HoverProject|null>(null);
-
+useState<ProjectData|null>(null);
 
 
 
 const backgroundImage=
-activeProject
-?
-projectImages[activeProject.id]
-:
-null;
+activeProject?.cover || "";
 
 
 
 
 
 return(
+
 
 
 <section
@@ -102,11 +86,14 @@ paddingBottom:"80px"
 
 
 
-{/* 动态项目背景 */}
+
+
+{/* =========================
+    dynamic background image
+========================= */}
 
 
 <div
-
 
 style={{
 
@@ -121,14 +108,20 @@ zIndex:0,
 
 
 opacity:
+
 backgroundImage
+
 ?
+
 1
+
 :
+
 0,
 
 
 transition:
+
 "opacity .8s ease",
 
 
@@ -137,12 +130,10 @@ pointerEvents:"none"
 
 }}
 
-
 >
 
 
 <div
-
 
 style={{
 
@@ -154,6 +145,7 @@ inset:0,
 
 
 backgroundImage:
+
 `url(${backgroundImage})`,
 
 
@@ -163,14 +155,15 @@ backgroundSize:"cover",
 backgroundPosition:"center",
 
 
-filter:"blur(18px)",
+filter:"blur(20px)",
 
 
-transform:"scale(1.08)",
+transform:"scale(1.12)",
 
 
 transition:
-"background-image .6s ease"
+
+"transform 1s ease"
 
 
 }}
@@ -180,11 +173,11 @@ transition:
 
 
 
-{/* 黑色玻璃遮罩 */}
 
+
+{/* glass overlay */}
 
 <div
-
 
 style={{
 
@@ -196,27 +189,31 @@ inset:0,
 
 
 background:
+
 `
 linear-gradient(
 180deg,
-rgba(5,8,20,.65),
+rgba(5,8,20,.58),
 rgba(5,8,20,.92)
 )
 `,
 
 
 backdropFilter:
-"blur(6px)",
+
+"blur(8px)",
 
 
 WebkitBackdropFilter:
-"blur(6px)"
+
+"blur(8px)"
 
 
 }}
 
 
 />
+
 
 
 </div>
@@ -228,7 +225,11 @@ WebkitBackdropFilter:
 
 
 
-{/* 原始背景纹理 */}
+
+{/* =========================
+    default atmosphere
+========================= */}
+
 
 
 <div
@@ -255,19 +256,20 @@ background:
 `
 radial-gradient(
 circle at 20% 20%,
-rgba(255,255,255,.04),
-transparent 28%
+rgba(255,255,255,.045),
+transparent 30%
 ),
 
 radial-gradient(
 circle at 80% 30%,
-rgba(255,255,255,.03),
-transparent 24%
+rgba(255,255,255,.035),
+transparent 25%
 )
 `
 
 
 }}
+
 
 
 />
@@ -278,7 +280,12 @@ transparent 24%
 
 
 
-{/* 内容 */}
+
+
+{/* =========================
+    content
+========================= */}
+
 
 
 <div
@@ -306,10 +313,14 @@ zIndex:2
 style={{
 
 
-paddingLeft:"92px",
+paddingLeft:
+
+"clamp(30px,8vw,92px)",
 
 
-paddingRight:"92px"
+paddingRight:
+
+"clamp(30px,8vw,92px)"
 
 
 }}
@@ -354,6 +365,8 @@ SELECTED WORKS
 
 
 
+
+
 <h2
 
 
@@ -363,7 +376,9 @@ style={{
 margin:0,
 
 
-fontSize:"96px",
+fontSize:
+
+"clamp(52px,8vw,96px)",
 
 
 lineHeight:.95,
@@ -390,6 +405,7 @@ PROJECTS
 
 
 </div>
+
 
 
 
@@ -446,13 +462,20 @@ setActiveProject(null);
 
 
 
+
+
+
 </div>
 
 
 
 
 
+
+
+
 </section>
+
 
 
 );
