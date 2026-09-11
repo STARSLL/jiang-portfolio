@@ -14,7 +14,7 @@ return(
 
 style={{
 background:"#05070b",
-height:"100vh",
+minheight:"100vh",
 overflow:"hidden"
 }}
 

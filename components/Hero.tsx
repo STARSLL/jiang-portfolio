@@ -1,181 +1,320 @@
 "use client";
 
-
 import { useRouter } from "next/navigation";
-
 
 
 export default function Hero(){
 
 
-    const router = useRouter();
+const router = useRouter();
 
 
 
-    return(
+return(
 
 
-        <section
+<section
 
-        style={{
+style={{
 
-            position:"absolute",
+position:"absolute",
 
-            left:"90px",
+left:"clamp(24px,6vw,90px)",
 
-            bottom:"150px",
+bottom:"clamp(90px,15vh,150px)",
 
-            zIndex:20,
+zIndex:20,
 
-            color:"#ffffff"
+color:"#ffffff",
 
-        }}
+width:"calc(100% - 48px)"
 
-        >
+}}
 
+>
 
 
-            <div
 
-            style={{
+<div
 
-                fontSize:"13px",
+style={{
 
-                letterSpacing:"11px",
+fontSize:"clamp(10px,1.2vw,13px)",
 
-                opacity:0.75,
+letterSpacing:"clamp(5px,1vw,11px)",
 
-                marginBottom:"38px",
+opacity:0.75,
 
-                fontWeight:400
+marginBottom:"clamp(22px,4vh,38px)",
 
-            }}
+fontWeight:400
 
-            >
+}}
 
-                INDUSTRIAL DESIGNER
+>
 
+INDUSTRIAL DESIGNER
 
-            </div>
 
+</div>
 
 
 
 
 
-            <h1
+<h1
 
-            style={{
+style={{
 
-                fontSize:"54px",
+fontSize:"clamp(42px,8vw,54px)",
 
-                fontWeight:600,
+fontWeight:600,
 
-                letterSpacing:"5px",
+letterSpacing:"clamp(2px,0.6vw,5px)",
 
-                lineHeight:1.15,
+lineHeight:1.12,
 
-                margin:0,
+margin:0,
 
-                textTransform:"uppercase"
+textTransform:"uppercase"
 
-            }}
+}}
 
-            >
+>
 
-                DESIGNING
+DESIGNING
 
-                <br/>
+<br/>
 
-                FUTURE
+FUTURE
 
 
-            </h1>
+</h1>
 
 
 
 
 
 
-            <p
 
-            style={{
 
-                marginTop:"35px",
+<p
 
-                fontSize:"13px",
+style={{
 
-                letterSpacing:"10px",
+marginTop:"clamp(20px,4vh,35px)",
 
-                opacity:0.75
+fontSize:"clamp(10px,1.3vw,13px)",
 
-            }}
+letterSpacing:"clamp(3px,1vw,10px)",
 
-            >
+opacity:0.75,
 
-                HUMAN × TECHNOLOGY × INTELLIGENCE
+maxWidth:"100%"
 
+}}
 
-            </p>
+>
 
+HUMAN × TECHNOLOGY × INTELLIGENCE
 
 
+</p>
 
 
 
 
-            <button
 
 
-            onClick={()=>{
+<button
 
-                router.push("/works");
+className="explore-btn"
 
-            }}
+onClick={()=>router.push("/works")}
 
+>
 
+EXPLORE WORKS
 
-            style={{
 
+</button>
 
-                marginTop:"45px",
 
-                width:"220px",
 
-                height:"55px",
 
-                border:"none",
 
-                background:"#ffffff",
+<style jsx>{`
 
-                color:"#111",
 
-                fontSize:"13px",
 
-                letterSpacing:"2px",
+.explore-btn{
 
-                cursor:"pointer"
 
+margin-top:40px;
 
-            }}
 
+padding:
 
-            >
+15px 42px;
 
 
-                EXPLORE WORKS
 
+border-radius:
 
-            </button>
+999px;
 
 
 
+border:
 
+1px solid rgba(255,255,255,.22);
 
-        </section>
 
 
-    )
+background:
 
+rgba(180,180,180,.12);
+
+
+
+backdrop-filter:
+
+blur(18px);
+
+
+
+-webkit-backdrop-filter:
+
+blur(18px);
+
+
+
+color:white;
+
+
+
+font-size:13px;
+
+
+
+letter-spacing:5px;
+
+
+
+text-transform:uppercase;
+
+
+
+cursor:pointer;
+
+
+
+outline:none;
+
+
+
+font-family:
+
+Arial,
+Helvetica,
+sans-serif;
+
+
+
+box-shadow:
+
+0 10px 40px rgba(0,0,0,.28);
+
+
+
+transition:
+
+all .35s ease;
+
+
+
+}
+
+
+
+.explore-btn:hover{
+
+
+background:
+
+rgba(255,255,255,.18);
+
+
+
+border-color:
+
+rgba(255,255,255,.45);
+
+
+
+transform:
+
+translateY(-5px);
+
+
+
+box-shadow:
+
+0 18px 55px rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+.explore-btn:active{
+
+
+transform:
+
+translateY(-2px);
+
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.explore-btn{
+
+
+padding:
+
+14px 34px;
+
+
+
+font-size:12px;
+
+
+
+letter-spacing:4px;
+
+
+}
+
+
+
+}
+
+
+
+`}</style>
+
+
+
+
+</section>
+
+
+)
 
 }

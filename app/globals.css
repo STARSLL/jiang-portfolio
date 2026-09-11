@@ -1,520 +1,534 @@
 *{
-
   box-sizing:border-box;
-  
-  }
-  
-  
-  body{
-  
-  
+}
+
+
+html,
+body{
+
   margin:0;
-  
-  
-  background:
-  
-  linear-gradient(
-  
-  180deg,
-  
-  #080a0d,
-  
-  #20242a
-  
-  );
-  
-  
-  color:white;
-  
-  
-  font-family:
-  
-  Arial, Helvetica, sans-serif;
-  
-  
-  }
-  
-  
-  
-  .navbar{
-  
-  
-  position:fixed;
-  
-  
-  top:0;
-  
-  
-  left:0;
-  
-  
+  padding:0;
+
   width:100%;
-  
-  
+  min-height:100%;
+
+  background:#050814;
+
+  color:#f5f7fb;
+
+  font-family:
+  Arial,
+  Helvetica,
+  sans-serif;
+
+}
+
+
+body{
+
+  overflow-x:hidden;
+
+}
+
+
+
+a{
+
+  color:inherit;
+
+  text-decoration:none;
+
+}
+
+
+
+img{
+
+  max-width:100%;
+
+  display:block;
+
+}
+
+
+
+/* =====================
+   Navbar
+===================== */
+
+
+.navbar{
+
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:90px;
+
   display:flex;
-  
-  
+
   justify-content:space-between;
-  
-  
+
   align-items:center;
-  
-  
-  padding:35px 60px;
-  
-  
-  z-index:10;
-  
-  
+
+  padding:0 60px;
+
+  z-index:100;
+
   background:
-  
-  rgba(10,10,10,.25);
-  
-  
+  rgba(5,8,20,.25);
+
   backdrop-filter:blur(12px);
-  
-  
-  }
-  
-  
-  
-  .logo{
-  
-  
-  font-size:18px;
-  
-  
-  letter-spacing:2px;
-  
-  
-  }
-  
-  
-  
-  .nav-links{
-  
-  
+
+}
+
+
+
+
+.desktop-menu{
+
   display:flex;
-  
-  
-  gap:45px;
-  
-  
-  font-size:14px;
-  
-  
-  color:#cfd3d8;
-  
-  
-  }
-  
-  
-  
-  .hero{
+
+  gap:55px;
+
+}
 
 
-    height:100vh;
-    
-    
-    display:flex;
-    
-    
-    align-items:flex-end;
-    
-    
-    justify-content:flex-start;
-    
-    
-    
-    padding-left:80px;
-    
-    
-    padding-bottom:100px;
-    
-    
-    }
-    
-    
-    
-    .hero-text{
-    
-    
-    max-width:600px;
-    
-    
-    }
-    
-    
-    
-    .subtitle{
-    
-    
-    font-size:14px;
-    
-    
-    letter-spacing:8px;
-    
-    
-    margin-bottom:30px;
-    
-    
-    color:#bfc5cc;
-    
-    
-    }
-    
-    
-    
-    .hero h1{
 
-      font-size:36px;
-      
-      font-weight:300;
-      
-      line-height:1.35;
-      
-      letter-spacing:1px;
-      
-      }
-    
-    
-    
-    .hero button{
-    
-    
-    margin-top:35px;
-    
-    
-    padding:12px 35px;
-    
-    
-    }
-    
-  
-  
-  
-  .works{
-  
-  
+.mobile-menu-button{
+
+  display:none;
+
+}
+
+
+
+/* =====================
+   About Page
+===================== */
+
+
+.about-page{
+
+  min-height:100vh;
+
+  background:#050814;
+
+  color:#f5f7fb;
+
+  overflow-x:hidden;
+
+}
+
+
+
+
+.about-container{
+
+  max-width:1200px;
+
+  margin:0 auto;
+
   padding:
-  
-  100px 60px;
-  
-  
-  }
-  
-  
-  
-  .works h2{
-  
-  
-  font-size:50px;
-  
-  
-  font-weight:200;
-  
-  
-  }
-  
-  
-  
-  .grid{
-  
-  
+
+  150px 40px 120px;
+
+}
+
+
+
+
+.about-header{
+
+  margin-bottom:120px;
+
+}
+
+
+
+
+.about-eyebrow{
+
+  font-size:13px;
+
+  letter-spacing:10px;
+
+  opacity:.55;
+
+}
+
+
+
+.about-header h1{
+
+  margin-top:35px;
+
+  font-size:72px;
+
+  line-height:1.05;
+
+  font-weight:600;
+
+  letter-spacing:2px;
+
+}
+
+
+
+/* =====================
+   Resume
+===================== */
+
+
+.resume-section{
+
+  margin-bottom:110px;
+
+}
+
+
+
+.resume-label{
+
+
+  font-size:14px;
+
+  letter-spacing:8px;
+
+  font-weight:500;
+
+  color:#cfd5df;
+
+  margin-bottom:45px;
+
+
+}
+
+
+
+
+.resume-grid{
+
+
+  width:100%;
+
   display:grid;
-  
-  
+
+
   grid-template-columns:
-  
-  repeat(3,1fr);
-  
-  
-  gap:30px;
-  
-  
-  }
-  
-  
-  
-  .card{
-  
-  
-  height:430px;
-  
-  
-  padding:25px;
-  
-  
-  border-radius:20px;
-  
-  
-  background:
-  
-  rgba(255,255,255,.08);
-  
-  
+
+  repeat(2,minmax(0,1fr));
+
+
+  gap:40px;
+
+
+}
+
+
+
+
+.resume-card{
+
+
+  width:100%;
+
+  overflow:hidden;
+
+
+  border-radius:22px;
+
+
   border:
-  
-  1px solid rgba(255,255,255,.15);
-  
-  
-  transition:.4s;
-  
-  
-  }
-  
-  
-  
-  .card:hover{
-  
-  
-  transform:
-  
-  translateY(-15px);
-  
-  
-  background:
-  
-  rgba(255,255,255,.15);
-  
-  
-  }
-  
-  
-  
-  .image-placeholder{
-  
-  
-  height:250px;
-  
-  
-  display:flex;
-  
-  
-  align-items:center;
-  
-  
-  justify-content:center;
-  
-  
-  background:
-  
-  linear-gradient(
-  
-  135deg,
-  
-  #333,
-  
-  #111
-  
-  );
-  
-  
-  color:#aaa;
-  
-  
-  margin-bottom:20px;
-  
-  
-  }
-  
-  .particle-bg{
 
-    position:fixed;
-    
-    top:0;
-    
-    left:0;
-    
-    width:100vw;
-    
-    height:100vh;
-    
-    z-index:-1;
-    
-    opacity:.85;
-    
-    filter:blur(.3px);
-    
-    }
-    
-    
-    
-    
-    
-    main{
-    
-    position:relative;
-    
-    overflow:hidden;
-    
-    }
-    .works{
+  1px solid rgba(255,255,255,.12);
 
-      background:#090b0f;
-      
-      padding:160px 90px;
-      
-      color:white;
-      
-      }
-      
-      
-      
-      .works-header{
-      
-      margin-bottom:100px;
-      
-      }
-      
-      
-      .works-header p{
-      
-      font-size:14px;
-      
-      letter-spacing:8px;
-      
-      color:#888;
-      
-      }
-      
-      
-      
-      .works-header h2{
-      
-      font-size:70px;
-      
-      font-weight:700;
-      
-      line-height:1.05;
-      
-      }
-      
-      
-      
-      .works-list{
-      
-      display:flex;
-      
-      flex-direction:column;
-      
-      gap:40px;
-      
-      }
-      
-      
-      
-      .project-card{
-      
-      
-      border-top:1px solid rgba(255,255,255,.2);
-      
-      
-      padding:45px 0;
-      
-      
-      display:flex;
-      
-      align-items:flex-start;
-      
-      position:relative;
-      
-      
-      transition:.4s;
-      
-      
-      }
-      
-      
-      
-      .project-card:hover{
-      
-      transform:translateX(30px);
-      
-      }
-      
-      
-      
-      .project-number{
-      
-      
-      font-size:18px;
-      
-      width:120px;
-      
-      color:#777;
-      
-      
-      }
-      
-      
-      
-      .project-content{
-      
-      
-      flex:1;
-      
-      
-      }
-      
-      
-      
-      .category{
-      
-      
-      font-size:12px;
-      
-      letter-spacing:5px;
-      
-      color:#aaa;
-      
-      }
-      
-      
-      
-      .project-content h3{
-      
-      
-      font-size:42px;
-      
-      margin:20px 0;
-      
-      
-      }
-      
-      
-      
-      .desc{
-      
-      
-      max-width:600px;
-      
-      font-size:16px;
-      
-      color:#aaa;
-      
-      line-height:1.8;
-      
-      
-      }
-      
-      
-      
-      .year{
-      
-      margin-top:25px;
-      
-      font-size:14px;
-      
-      }
-      
-      
-      
-      .arrow{
-      
-      
-      font-size:40px;
-      
-      
-      }
-      
+
+  background:
+
+  rgba(255,255,255,.03);
+
+
+  transition:.35s ease;
+
+
+}
+
+
+
+
+.resume-card:hover{
+
+
+  transform:translateY(-8px);
+
+
+  border-color:
+
+  rgba(255,255,255,.3);
+
+
+  box-shadow:
+
+  0 20px 50px rgba(0,0,0,.3);
+
+
+}
+
+
+
+.resume-card img{
+
+
+  width:100%;
+
+  height:auto;
+
+  display:block;
+
+
+}
+
+
+
+
+/* =====================
+   Works
+===================== */
+
+
+.works{
+
+  background:#050814;
+
+  color:white;
+
+}
+
+
+
+
+.works-title{
+
+  font-size:96px;
+
+}
+
+
+
+
+
+/* =====================
+   Hero
+===================== */
+
+
+.hero-title{
+
+  font-size:54px;
+
+}
+
+
+
+
+
+/* =====================
+   Mobile
+===================== */
+
+
+@media(max-width:768px){
+
+
+
+body{
+
+  overflow-x:hidden;
+
+}
+
+
+
+/* navbar */
+
+
+.navbar{
+
+  height:80px;
+
+  padding:
+
+  0 30px;
+
+}
+
+
+
+.desktop-menu{
+
+  display:none;
+
+}
+
+
+
+.mobile-menu-button{
+
+  display:block;
+
+}
+
+
+
+/* about */
+
+
+.about-container{
+
+
+  padding:
+
+  130px 30px 80px;
+
+
+}
+
+
+
+
+.about-header{
+
+
+  margin-bottom:90px;
+
+
+}
+
+
+
+.about-eyebrow{
+
+
+  font-size:12px;
+
+  letter-spacing:8px;
+
+
+}
+
+
+
+
+.about-header h1{
+
+
+  font-size:46px;
+
+  line-height:1.08;
+
+
+}
+
+
+
+
+/* resume */
+
+
+.resume-section{
+
+
+  margin-bottom:80px;
+
+
+}
+
+
+
+
+.resume-label{
+
+
+  font-size:12px;
+
+  letter-spacing:6px;
+
+  margin-bottom:35px;
+
+
+}
+
+
+
+
+.resume-grid{
+
+
+  display:grid;
+
+
+  grid-template-columns:
+
+  1fr;
+
+
+  gap:30px;
+
+
+}
+
+
+
+
+.resume-card{
+
+
+  border-radius:18px;
+
+
+}
+
+
+
+.resume-card:hover{
+
+
+  transform:none;
+
+  box-shadow:none;
+
+
+}
+
+
+
+
+/* hero */
+
+
+.hero-title{
+
+  font-size:42px!important;
+
+}
+
+
+
+
+/* works */
+
+
+.works-title{
+
+  font-size:56px!important;
+
+}
+
+
+
+}

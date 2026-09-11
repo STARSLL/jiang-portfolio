@@ -1,324 +1,354 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 
 
 export default function AboutPage(){
 
+  const chineseResume=[
+    "/resume/resume-01.jpg",
+    "/resume/resume-02.jpg"
+  ];
 
-const chineseResume=[
-"/resume/resume-01.jpg",
-"/resume/resume-02.jpg"
-];
+
+  const englishResume=[
+    "/resume/resume-03.jpg",
+    "/resume/resume-04.jpg"
+  ];
 
 
-const englishResume=[
-"/resume/resume-03.jpg",
-"/resume/resume-04.jpg"
-];
+
+  const renderResume=(images:string[],label:string)=>{
+
+    return(
+
+      <section className="resume-section">
+
+
+        <div className="resume-label">
+          {label}
+        </div>
+
+
+        <div className="resume-grid">
+
+        {
+          images.map((src)=>(
+            
+            <div
+              className="resume-card"
+              key={src}
+            >
+
+              <img
+                src={src}
+                draggable={false}
+                alt=""
+              />
+
+            </div>
+
+          ))
+        }
+
+
+        </div>
+
+
+      </section>
+
+    )
+
+  }
 
 
 
 return(
 
-<main
-
-style={{
-background:"#050814",
-minHeight:"100vh",
-color:"#f5f7fb"
-}}
-
->
+<main className="about-page">
 
 
-<Navbar />
+<Navbar/>
 
 
-
-<section
-
-style={{
-
-maxWidth:"1200px",
-
-margin:"0 auto",
-
-padding:"150px 40px 100px"
-
-}}
-
->
+<div className="about-container">
 
 
-<div
+<header className="about-header">
 
-style={{
 
-fontSize:"13px",
-
-letterSpacing:"8px",
-
-opacity:.5
-
-}}
-
->
-
+<div className="about-eyebrow">
 ABOUT ME
-
 </div>
 
 
-
-<h1
-
-style={{
-
-fontSize:"72px",
-
-marginTop:"30px",
-
-letterSpacing:"2px",
-
-fontWeight:600
-
-}}
-
->
-
-CURRICULUM VITAE
-
+<h1>
+CURRICULUM
+<br/>
+VITAE
 </h1>
 
 
+</header>
 
-
-
-{/* 中文简历 */}
-
-<section
-
-style={{
-
-marginTop:"90px"
-
-}}
-
->
-
-
-<h2
-
-style={{
-
-fontSize:"18px",
-
-letterSpacing:"6px",
-
-fontWeight:500,
-
-opacity:.8,
-
-marginBottom:"35px"
-
-}}
-
->
-
-CHINESE RESUME
-
-</h2>
-
-
-
-<div
-
-style={{
-
-display:"grid",
-
-gridTemplateColumns:"repeat(2,1fr)",
-
-gap:"35px"
-
-}}
-
->
 
 
 {
-
-chineseResume.map((src)=>(
-
-<div
-
-key={src}
-
-style={{
-
-borderRadius:"24px",
-
-overflow:"hidden",
-
-border:
-"1px solid rgba(255,255,255,0.1)",
-
-background:
-"rgba(255,255,255,0.03)",
-
-transition:
-"transform .4s ease"
-
-}}
-
->
+renderResume(
+chineseResume,
+"CHINESE RESUME"
+)
+}
 
 
-<img
 
-src={src}
 
-style={{
+{
+renderResume(
+englishResume,
+"ENGLISH RESUME"
+)
+}
 
-width:"100%",
-
-display:"block"
-
-}}
-
-/>
 
 
 </div>
 
 
-))
+<style jsx>{`
+
+
+.about-page{
+
+min-height:100vh;
+
+background:#050814;
+
+color:#f5f7fb;
+
+overflow-x:hidden;
 
 }
 
 
-</div>
 
+.about-container{
 
-</section>
+max-width:1200px;
 
+margin:auto;
 
+padding:
 
-
-
-
-{/* 英文简历 */}
-
-<section
-
-style={{
-
-marginTop:"100px"
-
-}}
-
->
-
-
-<h2
-
-style={{
-
-fontSize:"18px",
-
-letterSpacing:"6px",
-
-fontWeight:500,
-
-opacity:.8,
-
-marginBottom:"35px"
-
-}}
-
->
-
-ENGLISH RESUME
-
-</h2>
-
-
-
-
-<div
-
-style={{
-
-display:"grid",
-
-gridTemplateColumns:"repeat(2,1fr)",
-
-gap:"35px"
-
-}}
-
->
-
-
-{
-
-englishResume.map((src)=>(
-
-
-<div
-
-key={src}
-
-style={{
-
-borderRadius:"24px",
-
-overflow:"hidden",
-
-border:
-"1px solid rgba(255,255,255,0.1)",
-
-background:
-"rgba(255,255,255,0.03)"
-
-}}
-
->
-
-
-<img
-
-src={src}
-
-style={{
-
-width:"100%",
-
-display:"block"
-
-}}
-
-/>
-
-
-</div>
-
-
-))
+150px 40px 120px;
 
 }
 
 
-</div>
 
 
-</section>
+.about-header{
+
+margin-bottom:120px;
+
+}
 
 
 
-</section>
+.about-eyebrow{
+
+font-size:13px;
+
+letter-spacing:10px;
+
+opacity:.55;
+
+}
+
+
+
+.about-header h1{
+
+
+margin-top:35px;
+
+font-size:72px;
+
+line-height:1.05;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+
+}
+
+
+
+/* resume */
+
+
+.resume-section{
+
+margin-bottom:110px;
+
+}
+
+
+
+
+.resume-label{
+
+
+font-size:14px;
+
+letter-spacing:8px;
+
+font-weight:500;
+
+color:#cfd5df;
+
+margin-bottom:45px;
+
+
+}
+
+
+
+.resume-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(2,minmax(0,1fr));
+
+
+gap:40px;
+
+
+}
+
+
+
+.resume-card{
+
+
+width:100%;
+
+overflow:hidden;
+
+border-radius:22px;
+
+border:
+
+1px solid rgba(255,255,255,.12);
+
+
+background:
+
+rgba(255,255,255,.03);
+
+
+}
+
+
+
+.resume-card img{
+
+
+width:100%;
+
+height:auto;
+
+display:block;
+
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+
+.about-container{
+
+
+padding:
+
+130px 30px 80px;
+
+
+}
+
+
+
+.about-header{
+
+margin-bottom:90px;
+
+}
+
+
+
+.about-header h1{
+
+font-size:46px;
+
+}
+
+
+
+.resume-grid{
+
+
+grid-template-columns:
+
+1fr;
+
+
+gap:32px;
+
+
+}
+
+
+
+.resume-label{
+
+
+font-size:12px;
+
+letter-spacing:6px;
+
+margin-bottom:35px;
+
+
+}
+
+
+
+.resume-card{
+
+border-radius:18px;
+
+}
+
+
+}
+
+
+
+`}</style>
+
 
 
 </main>
+
 
 )
 

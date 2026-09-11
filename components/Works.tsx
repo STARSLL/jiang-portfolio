@@ -4,14 +4,10 @@
 import WorksScene from "./WorksScene";
 
 
-
-
 export default function Works(){
 
 
-
 return(
-
 
 <section
 
@@ -29,11 +25,10 @@ color:"#fff"
 
 }}
 
-
-
 >
 
 
+{/* page title */}
 
 <div
 
@@ -43,9 +38,9 @@ style={{
 
 position:"absolute",
 
-top:"80px",
+top:"140px",
 
-left:"90px",
+left:"clamp(30px,8vw,120px)",
 
 zIndex:10
 
@@ -53,20 +48,21 @@ zIndex:10
 }}
 
 
-
 >
 
 
+<div
 
-<p
 
 style={{
 
-letterSpacing:"12px",
-
 fontSize:"12px",
 
-opacity:.6
+letterSpacing:"10px",
+
+opacity:.55,
+
+marginBottom:"30px"
 
 }}
 
@@ -74,8 +70,7 @@ opacity:.6
 
 SELECTED WORKS
 
-</p>
-
+</div>
 
 
 
@@ -83,11 +78,19 @@ SELECTED WORKS
 
 style={{
 
-fontSize:"70px",
 
-letterSpacing:"6px",
+fontSize:"clamp(52px,6vw,82px)",
 
-marginTop:"20px"
+letterSpacing:"5px",
+
+fontWeight:600,
+
+lineHeight:1,
+
+margin:0,
+
+textTransform:"uppercase"
+
 
 }}
 
@@ -98,23 +101,16 @@ PROJECTS
 </h1>
 
 
-
 </div>
-
-
-
-
 
 
 
 <WorksScene/>
 
 
-
 </section>
 
 
 )
-
 
 }
