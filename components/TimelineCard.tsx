@@ -3,21 +3,25 @@
 
 import Link from "next/link";
 import {useState} from "react";
-import type {ProjectItem} from "./projects";
 
+import type {ProjectItem} from "./projects";
 
 
 
 
 interface Props{
 
-    project:ProjectItem;
-    
-    onHover:(project:ProjectItem)=>void;
-    
-    onLeave:()=>void;
-    
-    }
+project:ProjectItem;
+
+onHover:
+(project:ProjectItem)=>void;
+
+onLeave:
+()=>void;
+
+}
+
+
 
 
 
@@ -32,11 +36,14 @@ onLeave
 }:Props){
 
 
-const [hover,setHover]=useState(false);
+
+const [hover,setHover]=
+useState(false);
 
 
 
-const href=
+
+const href =
 project.slug
 ?
 `/works/${project.slug}`
@@ -46,12 +53,16 @@ project.slug
 
 
 
+
+
 return(
 
 
 <Link
 
+
 href={href}
+
 
 style={{
 
@@ -63,6 +74,8 @@ width:"100%"
 
 }}
 
+
+
 >
 
 
@@ -70,20 +83,28 @@ width:"100%"
 <div
 
 
+
 onMouseEnter={()=>{
+
 
 setHover(true);
 
+
 onHover(project);
+
 
 }}
 
 
+
 onMouseLeave={()=>{
+
 
 setHover(false);
 
+
 onLeave();
+
 
 }}
 
@@ -93,62 +114,81 @@ onLeave();
 style={{
 
 
+
+position:"relative",
+
+
+
 width:"100%",
+
 
 
 height:"220px",
 
 
+
+
 borderRadius:"22px",
+
+
+
+
+overflow:"hidden",
+
+
 
 
 border:
 
-"1px solid rgba(255,255,255,.14)",
+"1px solid rgba(255,255,255,.16)",
+
 
 
 
 background:
 
-hover
+"rgba(255,255,255,.04)",
 
-?
-
-"rgba(255,255,255,.08)"
-
-:
-
-"rgba(255,255,255,.025)",
 
 
 
 backdropFilter:
 
-"blur(14px)",
+"blur(18px)",
+
+
 
 
 WebkitBackdropFilter:
 
-"blur(14px)",
+"blur(18px)",
+
 
 
 
 padding:"26px",
 
 
+
+
 boxSizing:"border-box",
+
 
 
 
 display:"flex",
 
+
+
 flexDirection:"column",
+
 
 
 
 transition:
 
-"all .35s ease",
+"all .45s ease",
+
 
 
 
@@ -158,11 +198,12 @@ hover
 
 ?
 
-"translateY(-12px)"
+"translateY(-14px)"
 
 :
 
 "translateY(0)",
+
 
 
 
@@ -172,7 +213,7 @@ hover
 
 ?
 
-"0 20px 50px rgba(0,0,0,.35)"
+"0 25px 70px rgba(0,0,0,.45)"
 
 :
 
@@ -180,7 +221,9 @@ hover
 
 
 
+
 cursor:"pointer"
+
 
 
 }}
@@ -190,21 +233,214 @@ cursor:"pointer"
 
 
 
-{/* project number */}
+
+
+{/* =====================
+hover cover image
+===================== */}
+
 
 <div
 
+
 style={{
+
+
+position:"absolute",
+
+
+inset:0,
+
+
+
+backgroundImage:
+
+`url(${project.cover})`,
+
+
+
+backgroundSize:"cover",
+
+
+
+backgroundPosition:"center",
+
+
+
+
+opacity:
+
+hover
+
+?
+
+0.25
+
+:
+
+0,
+
+
+
+
+transition:
+
+"opacity .6s ease",
+
+
+
+
+filter:
+
+"blur(3px)",
+
+
+
+
+transform:
+
+hover
+
+?
+
+"scale(1.08)"
+
+:
+
+"scale(1)",
+
+
+
+pointerEvents:"none"
+
+
+
+}}
+
+
+/>
+
+
+
+
+
+
+
+
+{/* dark glass overlay */}
+
+
+
+<div
+
+
+style={{
+
+
+position:"absolute",
+
+
+inset:0,
+
+
+
+background:
+
+
+`
+
+linear-gradient(
+
+180deg,
+
+rgba(5,8,20,.25),
+
+rgba(5,8,20,.85)
+
+)
+
+`,
+
+
+
+opacity:
+
+hover
+
+?
+
+1
+
+:
+
+0.6
+
+
+
+}}
+
+
+/>
+
+
+
+
+
+
+
+
+
+{/* content */}
+
+
+
+<div
+
+
+style={{
+
+
+position:"relative",
+
+
+zIndex:2,
+
+
+height:"100%",
+
+
+display:"flex",
+
+
+flexDirection:"column"
+
+
+}}
+
+>
+
+
+
+
+
+
+<div
+
+
+style={{
+
 
 fontSize:"11px",
 
+
 letterSpacing:"5px",
+
 
 opacity:.45,
 
-marginBottom:"26px",
 
-flexShrink:0
+marginBottom:"26px"
+
 
 }}
 
@@ -220,9 +456,10 @@ PROJECT {project.id}
 
 
 
-{/* title */}
+
 
 <h3
+
 
 style={{
 
@@ -245,19 +482,17 @@ fontWeight:600,
 textTransform:"uppercase",
 
 
+maxWidth:"230px"
 
-maxWidth:"230px",
-
-
-
-minHeight:"60px"
 
 
 }}
 
 >
 
+
 {project.title}
+
 
 </h3>
 
@@ -267,9 +502,10 @@ minHeight:"60px"
 
 
 
-{/* category */}
+
 
 <div
+
 
 style={{
 
@@ -280,30 +516,41 @@ marginTop:"auto",
 fontSize:"10px",
 
 
-lineHeight:1.4,
+lineHeight:1.5,
 
 
 letterSpacing:"4px",
 
 
-opacity:.55,
+opacity:.6,
 
 
-textTransform:"uppercase",
+maxWidth:"230px",
 
 
+textTransform:"uppercase"
 
-maxWidth:"230px"
 
 
 }}
 
 >
 
+
 {project.category}
 
 
 </div>
+
+
+
+
+
+
+
+</div>
+
+
 
 
 
@@ -317,5 +564,6 @@ maxWidth:"230px"
 
 
 )
+
 
 }

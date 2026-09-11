@@ -1,44 +1,36 @@
 "use client";
 
 
-import {useRef,useState} from "react";
+import {
+  useRef,
+  useState
+} from "react";
+
 
 import TimelineCard from "./TimelineCard";
 
-import {projects} from "./projects";
+
+import {
+  projects,
+  ProjectItem
+} from "./projects";
 
 
 
-interface ProjectData{
-
-  id:string;
-
-  title:string;
-
-  category:string;
-
-  year:string;
-
-  slug?:string;
-
-  description?:string;
-
-  cover:string;
-
-}
-
-
-
-import type {ProjectItem} from "./projects";
 
 
 interface Props{
 
-onProjectHover:(project:ProjectItem)=>void;
+  onProjectHover:
+  (project:ProjectItem)=>void;
 
-onProjectLeave:()=>void;
+  onProjectLeave:
+  ()=>void;
 
 }
+
+
+
 
 
 
@@ -46,9 +38,9 @@ onProjectLeave:()=>void;
 
 export default function Timeline({
 
-  onProjectHover,
+onProjectHover,
 
-  onProjectLeave
+onProjectLeave
 
 }:Props){
 
@@ -74,25 +66,31 @@ useRef(0);
 
 
 
-const [dragging,setDragging]=
+const [dragging,setDragging]
+=
 useState(false);
 
 
 
 
 
-/* =========================
-   mouse drag
-========================= */
 
 
-const handleMouseDown=
-(e:React.MouseEvent<HTMLDivElement>)=>{
+/*
+========================
+mouse drag
+========================
+*/
+
+
+const handleMouseDown =
+(
+e:React.MouseEvent<HTMLDivElement>
+)=>{
 
 
 if(!scrollRef.current)
 return;
-
 
 
 isDragging.current=true;
@@ -102,10 +100,12 @@ setDragging(true);
 
 
 
-startX.current=e.clientX;
+startX.current =
+e.clientX;
 
 
-startScrollLeft.current=
+
+startScrollLeft.current =
 scrollRef.current.scrollLeft;
 
 
@@ -115,24 +115,28 @@ scrollRef.current.scrollLeft;
 
 
 
-const handleMouseMove=
-(e:React.MouseEvent<HTMLDivElement>)=>{
+
+const handleMouseMove =
+(
+e:React.MouseEvent<HTMLDivElement>
+)=>{
 
 
 if(
 !isDragging.current ||
 !scrollRef.current
 )
+
 return;
 
 
 
-const move=
+const move =
 e.clientX-startX.current;
 
 
 
-scrollRef.current.scrollLeft=
+scrollRef.current.scrollLeft =
 startScrollLeft.current-move;
 
 
@@ -142,7 +146,10 @@ startScrollLeft.current-move;
 
 
 
-const stopDragging=()=>{
+
+
+const stopDragging =
+()=>{
 
 
 isDragging.current=false;
@@ -158,111 +165,74 @@ setDragging(false);
 
 
 
-/* =========================
-   touch drag
-========================= */
-
-
-const handleTouchStart=
-(e:React.TouchEvent<HTMLDivElement>)=>{
-
-
-if(!scrollRef.current)
-return;
-
-
-
-isDragging.current=true;
-
-
-
-startX.current=
-e.touches[0].clientX;
-
-
-
-startScrollLeft.current=
-scrollRef.current.scrollLeft;
-
-
-};
-
-
-
-
-
-const handleTouchMove=
-(e:React.TouchEvent<HTMLDivElement>)=>{
-
-
-if(
-!isDragging.current ||
-!scrollRef.current
-)
-return;
-
-
-
-const move=
-e.touches[0].clientX-startX.current;
-
-
-
-scrollRef.current.scrollLeft=
-startScrollLeft.current-move;
-
-
-};
-
-
-
 
 
 
 return(
 
 
+
 <section
+
 
 style={{
 
+
 position:"relative",
+
 
 width:"100%",
 
+
 marginTop:"42px"
 
+
 }}
+
 
 >
 
 
 
+
+
+
 <div
+
 
 style={{
 
+
 position:"absolute",
+
 
 right:"40px",
 
+
 top:"-20px",
+
 
 fontSize:"11px",
 
+
 letterSpacing:"4px",
+
 
 opacity:.45,
 
+
 textTransform:"uppercase"
 
+
 }}
+
 
 >
 
 DRAG TO EXPLORE →
 
 </div>
+
 
 
 
@@ -288,23 +258,16 @@ onMouseUp={stopDragging}
 onMouseLeave={stopDragging}
 
 
-onTouchStart={handleTouchStart}
-
-
-onTouchMove={handleTouchMove}
-
-
-onTouchEnd={stopDragging}
-
-
 
 style={{
+
 
 
 overflowX:"auto",
 
 
 overflowY:"hidden",
+
 
 
 cursor:
@@ -325,14 +288,11 @@ scrollbarWidth:"none",
 
 
 
-WebkitOverflowScrolling:"touch",
-
-
-
 userSelect:"none"
 
 
 }}
+
 
 >
 
@@ -341,8 +301,8 @@ userSelect:"none"
 
 
 
-
 <div
+
 
 style={{
 
@@ -356,13 +316,16 @@ gap:"32px",
 width:"max-content",
 
 
-padding:"20px 24px 90px",
+padding:
+
+"20px 24px 90px",
 
 
 position:"relative"
 
 
 }}
+
 
 >
 
@@ -375,7 +338,9 @@ position:"relative"
 
 {/* timeline line */}
 
+
 <div
+
 
 style={{
 
@@ -402,6 +367,7 @@ background:
 
 }}
 
+
 />
 
 
@@ -420,10 +386,11 @@ projects.map((project)=>(
 
 <div
 
+
 key={project.id}
 
-style={{
 
+style={{
 
 
 width:
@@ -444,20 +411,13 @@ flexDirection:"column",
 
 
 
-alignItems:"center",
-
-
-
-scrollSnapAlign:"start"
-
+alignItems:"center"
 
 
 }}
 
+
 >
-
-
-
 
 
 
@@ -468,7 +428,9 @@ scrollSnapAlign:"start"
 project={project}
 
 
-onHover={onProjectHover}
+onHover
+
+={onProjectHover}
 
 
 onLeave={onProjectLeave}
@@ -486,6 +448,7 @@ onLeave={onProjectLeave}
 
 <div
 
+
 style={{
 
 
@@ -502,6 +465,7 @@ background:
 
 }}
 
+
 />
 
 
@@ -511,8 +475,8 @@ background:
 
 
 
-
 <div
+
 
 style={{
 
@@ -536,6 +500,7 @@ boxShadow:
 
 }}
 
+
 />
 
 
@@ -545,8 +510,8 @@ boxShadow:
 
 
 
-
 <div
+
 
 style={{
 
@@ -565,12 +530,12 @@ opacity:.65
 
 }}
 
+
 >
 
 {project.year}
 
 </div>
-
 
 
 
@@ -590,13 +555,14 @@ opacity:.65
 
 
 
-</div>
-
-
 
 </div>
 
 
+
+
+
+</div>
 
 
 
@@ -617,9 +583,12 @@ display:none;
 
 
 
+
 </section>
 
 
-)
+
+);
+
 
 }

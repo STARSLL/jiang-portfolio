@@ -1,10 +1,7 @@
 "use client";
 
-
 import {useState} from "react";
-
 import Timeline from "./Timeline";
-
 
 
 interface ProjectData{
@@ -21,10 +18,9 @@ interface ProjectData{
 
   description?:string;
 
-  cover?:string;
+  cover:string;
 
 }
-
 
 
 
@@ -32,15 +28,14 @@ interface ProjectData{
 export default function WorksScene(){
 
 
-
-const [activeProject,setActiveProject]=
+const [activeProject,setActiveProject]
+=
 useState<ProjectData|null>(null);
 
 
 
-const backgroundImage=
+const backgroundImage =
 activeProject?.cover || "";
-
 
 
 
@@ -48,64 +43,92 @@ activeProject?.cover || "";
 return(
 
 
-
 <section
-
 
 style={{
 
-
 position:"relative",
-
 
 minHeight:"100vh",
 
-
 width:"100%",
-
 
 background:"#050814",
 
-
 color:"#f5f7fb",
-
 
 overflow:"hidden",
 
-
 paddingTop:"150px",
-
 
 paddingBottom:"80px"
 
+}}
+
+>
+
+
+
+{/* =========================
+默认科技背景
+========================= */}
+
+<div
+
+style={{
+
+position:"absolute",
+
+inset:0,
+
+zIndex:0,
+
+background:`
+
+radial-gradient(
+circle at 30% 30%,
+rgba(80,255,180,.08),
+transparent 30%
+),
+
+radial-gradient(
+circle at 70% 60%,
+rgba(180,220,255,.05),
+transparent 35%
+),
+
+linear-gradient(
+180deg,
+#07110f,
+#050814
+)
+
+`
 
 }}
 
+/>
 
->
 
 
 
 
 
 {/* =========================
-    dynamic background image
+hover项目图片背景
 ========================= */}
+
 
 
 <div
 
 style={{
 
-
 position:"absolute",
-
 
 inset:0,
 
-
-zIndex:0,
-
+zIndex:1,
 
 opacity:
 
@@ -127,7 +150,6 @@ transition:
 
 pointerEvents:"none"
 
-
 }}
 
 >
@@ -137,9 +159,7 @@ pointerEvents:"none"
 
 style={{
 
-
 position:"absolute",
-
 
 inset:0,
 
@@ -149,41 +169,42 @@ backgroundImage:
 `url(${backgroundImage})`,
 
 
+
 backgroundSize:"cover",
 
 
 backgroundPosition:"center",
 
 
-filter:"blur(20px)",
+
+filter:
+
+"blur(25px)",
 
 
-transform:"scale(1.12)",
+
+transform:
+
+"scale(1.15)",
+
 
 
 transition:
 
-"transform 1s ease"
-
+"all .8s ease"
 
 }}
-
 
 />
 
 
 
 
-
-{/* glass overlay */}
-
 <div
 
 style={{
 
-
 position:"absolute",
-
 
 inset:0,
 
@@ -191,26 +212,30 @@ inset:0,
 background:
 
 `
+
 linear-gradient(
+
 180deg,
-rgba(5,8,20,.58),
+
+rgba(5,8,20,.45),
+
 rgba(5,8,20,.92)
+
 )
+
 `,
 
 
 backdropFilter:
 
-"blur(10px)",
+"blur(8px)",
 
 
 WebkitBackdropFilter:
 
-"blur(10px)"
-
+"blur(8px)"
 
 }}
-
 
 />
 
@@ -224,84 +249,21 @@ WebkitBackdropFilter:
 
 
 
-
-
 {/* =========================
-    default atmosphere
+内容
 ========================= */}
 
 
 
 <div
 
-
 style={{
-
-
-position:"absolute",
-
-
-inset:0,
-
-
-zIndex:1,
-
-
-pointerEvents:"none",
-
-
-background:
-
-
-`
-radial-gradient(
-circle at 20% 20%,
-rgba(255,255,255,.045),
-transparent 30%
-),
-
-radial-gradient(
-circle at 80% 30%,
-rgba(255,255,255,.035),
-transparent 25%
-)
-`
-
-
-}}
-
-
-
-/>
-
-
-
-
-
-
-
-
-
-{/* =========================
-    content
-========================= */}
-
-
-
-<div
-
-
-style={{
-
 
 position:"relative",
 
-
-zIndex:2
-
+zIndex:3
 
 }}
-
 
 >
 
@@ -309,9 +271,7 @@ zIndex:2
 
 <div
 
-
 style={{
-
 
 paddingLeft:
 
@@ -322,9 +282,7 @@ paddingRight:
 
 "clamp(30px,8vw,92px)"
 
-
 }}
-
 
 >
 
@@ -332,27 +290,19 @@ paddingRight:
 
 <div
 
-
 style={{
-
 
 fontSize:"13px",
 
-
 letterSpacing:"10px",
-
 
 opacity:.58,
 
-
 marginBottom:"22px",
-
 
 textTransform:"uppercase"
 
-
 }}
-
 
 >
 
@@ -364,14 +314,9 @@ SELECTED WORKS
 
 
 
-
-
-
 <h2
 
-
 style={{
-
 
 margin:0,
 
@@ -392,9 +337,7 @@ letterSpacing:"1px",
 
 textTransform:"uppercase"
 
-
 }}
-
 
 >
 
@@ -416,18 +359,13 @@ PROJECTS
 
 <div
 
-
 style={{
-
 
 marginTop:"46px"
 
-
 }}
 
-
 >
-
 
 
 <Timeline
@@ -435,9 +373,7 @@ marginTop:"46px"
 
 onProjectHover={(project)=>{
 
-
 setActiveProject(project);
-
 
 }}
 
@@ -445,9 +381,7 @@ setActiveProject(project);
 
 onProjectLeave={()=>{
 
-
 setActiveProject(null);
-
 
 }}
 
@@ -455,27 +389,15 @@ setActiveProject(null);
 />
 
 
-
 </div>
 
 
 
-
-
-
-
-
 </div>
-
-
-
-
-
 
 
 
 </section>
-
 
 
 );
